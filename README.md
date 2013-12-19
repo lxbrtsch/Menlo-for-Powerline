@@ -43,3 +43,9 @@ set guifont=Menlo\ for\ Powerline
 **4.** For use with the terminal, change your settings according.
 
 **5.** Enjoy!
+
+
+Bold, Italic, Bold Italic
+-------------------------
+
+As far as I know, these extra font styles should work. I've had absolutely not problems with them, however, you may run into an issue. I added them as to provide support for bold, italic, and bold italic fonts within the terminal. Please let me know if you have any issues.
