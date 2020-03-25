@@ -21,11 +21,17 @@ set guifont=Menlo\ for\ Powerline
 Linux
 -----
 
-**NB:** I have not actually tried this, but it should work. I don't have access to a Linux machine, but these commands *should* be correct. 
+Run the `setup` file inside the project folder
+
+```
+./setup
+```
+
+or
 
 **1.** Copy `Menlo for Powerline.ttf` into your `~/.fonts` directory. (Or any X font directory)
 ```
-$ cp "Menlo for Powerline.ttf" ~/.fonts
+$ cp ./Menlo*\ for\ Powerline.ttf $HOME/.fonts/
 ```
 
 **2.** Update your fonts cache.

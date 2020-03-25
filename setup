@@ -1,0 +1,47 @@
+#!/bin/bash
+
+## check user fonts folder
+if [ -e "$HOME/.fonts" ]; then
+    if ! [ -d "$HOME/.fonts" ]; then
+        echo "Error: '$HOME/.fonts' already exists and is not a directory"
+        exit 1
+    fi
+else
+    mkdir "$HOME/.fonts"
+fi
+
+## copy ttf files
+cp ./Menlo*\ for\ Powerline.ttf $HOME/.fonts/
+
+## copy status output
+if [ $? -eq 0 ]; then
+    echo "Fonts copied successfully"
+else
+    echo "Error copying files"
+    exit 1
+fi
+
+## update fonts cache
+fc-cache -vf $HOME/.fonts
+
+## fc-cache status output
+if [ $? -eq 0 ]; then
+    echo "Fonts cache updated"
+    echo "You may or may not need to restart all windows before changes take effect"
+else
+    echo "Error copying files"
+    exit 1
+fi
+
+## [optional] apply font in vim/gvim
+if [ -e "$HOME/.vimrc" ]; then
+    echo
+    while true; do
+        read -p "Do you wish to apply the Poweline Font in vim/gvim text editors? [Y/n]" yn
+        case $yn in
+            [Yy]* ) echo -e "\n# Powerline Font\nset guifont=Menlo for Powerline" >> $HOME/.vimrc; break;;
+            [Nn]* ) break;;
+            * ) echo "Please answer (Y)es or (N)o.";;
+        esac
+    done
+fi
